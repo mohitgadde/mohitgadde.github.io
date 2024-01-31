@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://mohitgadde.github.io/mohitgadde/sitemap.xml
+Sitemap: https://mohitgadde.github.io/sitemap.xml
