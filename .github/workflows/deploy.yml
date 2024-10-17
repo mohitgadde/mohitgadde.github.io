@@ -72,6 +72,8 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
+      - name: Fix Permissions
+        run: sudo chown -R $USER:$USER .
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
