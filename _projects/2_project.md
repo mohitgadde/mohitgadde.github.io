@@ -85,6 +85,20 @@ accurate and stable predictions.
     Various terrains used to train the terrain aware locmotion policy
 </div>
 
+<div class="row justify-content-sm-center mt-3">
+    <div class="col-sm-8">
+        <div class="video-container">
+            <iframe width="100%" height="400" 
+                    src="https://www.youtube.com/embed/6kgB8PqvLYU" 
+                    title="Experiments Video" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
 <h2 id="results">Results</h2>
 
 <div class="row justify-content-sm-center">
