@@ -23,6 +23,8 @@ group :jekyll_plugins do
     gem 'webrick'
     gem 'rexml', '~> 3.3.6'
     gem 'strscan', '~> 3.0'
+    gem 'observer'
+    gem 'logger'
 end
 group :other_plugins do
     gem 'css_parser'
