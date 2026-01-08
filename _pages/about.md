@@ -13,13 +13,17 @@ profile:
   #   <p>123 your address street</p>
   #   <p>Your City, State 12345</p>
 
-news: false # includes a list of news items
+news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Hello! I am Mohit. I am a Ph.D. candidate at Oregon State University, advised by [Prof. Alan Fern](https://engineering.oregonstate.edu/people/alan-fern) in the [Dynamic Robotics and Artificial Intelligence Laboratory (DRAIL)](https://mime.engineering.oregonstate.edu/research/drl/). My research focuses on reinforcement learning, embodied AI, and vision-based locomotion for legged robots and multi-agent systems. I explore approaches in robot learning, combining vision-based reinforcement learning with robust control and planning techniques. My reserach aims to equip robots with the adaptability and precision required to operate seamlessly in diverse environments.
+Hello! My name is Mohitvishnu, but most people call me [Mohit](https://scholar.google.com/citations?user=zrve6q8AAAAJ).
 
-Previously, I worked on multiagent systems and aerial robotics at the Indian Institute of Science (IISc). This research was conducted at the [AIRL](https://www.youtube.com/channel/UCO1luTfMp6TwYpOogOe0SyA) and [GCDSL](https://en.wikipedia.org/wiki/IISc_Guidance,_Control_and_Decision_Systems_Laboratory) labs under the guidance of [Prof. Suresh Sundaram](https://aero.iisc.ac.in/people/suresh-sundaram/) and [Prof. Debashish Ghose](https://aero.iisc.ac.in/people/debasish-ghose/). I participated in the Mohamed Bin Zayed International Robotics Challenge (MBZIRC), gaining valuable experience in competitive robotics.
+I am a Ph.D. candidate at Oregon State University, working with [Prof. Alan Fern](https://engineering.oregonstate.edu/people/alan-fern) in the [Dynamic Robotics and Artificial Intelligence Laboratory (DRAIL)](https://mime.engineering.oregonstate.edu/research/drl/). My research focuses on reinforcement learning, embodied AI, and vision-based locomotion for bipedal robots and multi-agent systems.
 
-I earned my Bachelors of Technology (B.Tech) in Mechanical Engineering from Rajiv Gandhi University of Knowledge Technologies (RGUKT AP-IIIT), Nuzvid. I interned at the UAV lab at IISc with [Dr. S. N. Omkar](https://aero.iisc.ac.in/people/s-n-omkar/), which further fueled my passion for robotics.
+In Summer 2025, I interned at Amazon Robotics (Lab126), where I developed an agentic AI framework for mobile manipulation using LLM-driven hierarchical planning and visuomotor control.
+
+Previously, I worked on multiagent aerial robotics at the Indian Institute of Science (IISc) in the [AIRL](https://www.youtube.com/channel/UCO1luTfMp6TwYpOogOe0SyA) and [GCDSL](https://en.wikipedia.org/wiki/IISc_Guidance,_Control_and_Decision_Systems_Laboratory) labs under [Prof. Suresh Sundaram](https://aero.iisc.ac.in/people/suresh-sundaram/) and [Prof. Debashish Ghose](https://aero.iisc.ac.in/people/debasish-ghose/), and participated in the Mohamed Bin Zayed International Robotics Challenge (MBZIRC).
+
+I earned my B.Tech in Mechanical Engineering from RGUKT AP-IIIT, Nuzvid. An early internship at IISc's UAV lab with [Dr. S. N. Omkar](https://aero.iisc.ac.in/people/s-n-omkar/) deepened my interest in robotics.

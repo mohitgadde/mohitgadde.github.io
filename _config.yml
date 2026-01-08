@@ -3,8 +3,8 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Mohitvishnu
-middle_name: S.
+first_name: Mohit
+middle_name:
 last_name: Gadde
 email: 
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -199,7 +199,7 @@ collections:
     permalink: /:collection/:title/
 
 announcements:
-  enabled: false
+  enabled: True
   scrollable:  # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
