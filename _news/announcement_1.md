@@ -5,4 +5,6 @@ inline: true
 related_posts: false
 ---
 
-Presented two papers at **IEEE Humanoids 2025** in Seoul, South Korea: *No More Blind Spots* on depth-based omnidirectional locomotion for bipedal robots on challenging terrain, and *No More Marching* on humanoid locomotion for short-range targets.
+Presented two papers at **IEEE Humanoids 2025** in Seoul, South Korea:
+- [*No More Blind Spots: Learning Vision-based Omnidirectional Bipedal Locomotion for Challenging Terrain*](https://ieeexplore.ieee.org/document/11203175)
+- [*No More Marching: Learning Humanoid Locomotion for Short-Range SE (2) Targets*](https://ieeexplore.ieee.org/document/11203149)

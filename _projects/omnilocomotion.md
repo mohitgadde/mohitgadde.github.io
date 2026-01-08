@@ -45,65 +45,29 @@ locomotion, showcasing its adaptability to diverse terrains.
     speed up to 1m/s.
 </div>
 
-<h2 id="system_arch">System Architecture</h2>
+<h2 id="approach">Approach</h2>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/icra2024/system_arch.png" title="Intro Image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Overview of the locomotion policy with vision module.
-</div>
+A key challenge in omnidirectional vision-based locomotion is the high computational cost of rendering omnidirectional depth images during reinforcement learning in simulation. Our approach addresses this through a three-stage training framework:
 
-The above image illustrates the overall system, which has two main components: (1) a locomotion policy, which outputs PD setpoints for the robot actuators based on proprioception,
-a local terrain heightmap, and user commands, and (2) a heightmap predictor, which outputs a predicted heightmap based on proprioceptive information and images from a depth
-camera. These components are learned in simulation and then transferred to the real robot (Cassie).
+**Stage 1: Blind Controller.** We first train a robust blind locomotion policy using privileged terrain information. This controller learns to walk in all directions without visual input, providing a strong foundation for subsequent stages.
 
+**Stage 2: Teacher Policy.** We train a teacher policy that uses ground-truth terrain heightmaps to supervise omnidirectional locomotion. The teacher builds on the blind controller and learns to modulate actions based on terrain geometry.
 
-<h2 id="policy">Terrain Aware Policy and Heightmap Predictor</h2>
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-6 mt-3 mt-md-5 text-center">
-        {% include figure.liquid path="assets/img/icra2024/policy_arch.png" title="Policy Architecture" class="img-fluid rounded z-depth-1" %}
-        <div class="caption">Policy Architecture</div>
-    </div>
-    <div class="col-sm-6 mt-3 mt-md-0 text-center">
-        {% include figure.liquid path="assets/img/icra2024/hm_predictor.png" title="Heightmap Predictor" class="img-fluid rounded z-depth-1" %}
-        <div class="caption">Heightmap Predictor</div>
-    </div>
-</div>
-
-The policy here is represented by a neural network that maps observation sequences to actions. It consists of two key components: 
-a pretrained blind policy and a vision-based modulator. The blind policy provides a baseline locomotion control signal suitable for moderate terrains. 
-For more complex terrain, the vision-based modulator refines the baseline control by incorporating local terrain details, enabling more adaptive and 
-robust locomotion.
-
-**Heightmap Predictor** is a neural network that estimates the terrain heightmap ahead of the robot using depth images and robot states. 
-It consists of two stages: **Stage 1** uses an LSTM to reconstruct missing terrain details by leveraging temporal information, trained with mean-squared 
-error loss. **Stage 2** refines the heightmap using a U-Net, enhancing edge sharpness and surface flatness with L1 loss, resulting in more 
-accurate and stable predictions.
+**Stage 3: Vision-Based Student.** Finally, we train a student policy that uses depth images instead of ground-truth heightmaps. The student is trained via supervised learning on noise-augmented terrain data, avoiding the need for expensive depth rendering during RL. We introduce a data augmentation technique that accelerates this training by up to 10x compared to conventional methods.
 
 
 <h2 id="experiments">Experiments</h2>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/icra2024/terrain.png" title="terrain" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Various terrains used to train the terrain aware locmotion policy
-</div>
+We validate our framework through both simulation and real-world experiments on the Cassie bipedal robot. The robot is tested on challenging terrains including random stepping stones, stairs, and large step-ups (up to 0.5m, approximately 60% of leg length).
 
 <div class="row justify-content-sm-center mt-3">
     <div class="col-sm-8">
         <div class="video-container">
-            <iframe width="100%" height="400" 
-                    src="https://www.youtube.com/embed/6kgB8PqvLYU" 
-                    title="Experiments Video" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            <iframe width="100%" height="400"
+                    src="https://www.youtube.com/embed/6kgB8PqvLYU"
+                    title="Experiments Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
         </div>
@@ -112,14 +76,9 @@ accurate and stable predictions.
 
 <h2 id="results">Results</h2>
 
-<div class="row justify-content-sm-center">
-    <div class="col-12 mt-6 mt-md-0">
-        {% include figure.liquid path="assets/img/icra2024/results.png" title="results" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+Our method achieves omnidirectional walking at speeds up to 1 m/s using depth camera input. Key results include:
 
-**[A]** Ablation study on policy with simulation heightmap. **[B]** Ablation study on policy with different heightmap predictor architectures.
-Each ablation study uses data collected from a range of terrains defined in Table I. **Success rate** indicates the robot does not fall down for
-10 seconds of rollouts. **Episodes with foot collision** indicates the number of episodes that have one or more foot collision events occurred
-during rollouts, and such random collision events are unfavorable towards hardware deployment. **Termination due to foot collision** shows
-the percentage of foot collision events that lead to failures. All plots are evaluated with a confidence interval of **95%**.
+- **10x training acceleration** compared to conventional rendering-based approaches
+- Successful sim-to-real transfer on the Cassie robot
+- Robust locomotion across diverse challenging terrains
+- First demonstration of vision-based omnidirectional bipedal locomotion
